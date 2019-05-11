@@ -39,7 +39,10 @@ public class CSVWriter {
 
 	public void close() throws IOException {
 		// TODO Auto-generated method stub
-		writer.flush();
 		writer.close();
+	}
+	
+	public void flush() throws IOException {
+		writer.flush();
 	}
 }

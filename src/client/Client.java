@@ -39,7 +39,13 @@ public class Client {
 					temp = newdate.getTime();
 					callServer();
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println(e.getMessage());
+					try {
+						writer.newRow();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 				if (temp >= (time + 12 * HOUR)) {
 					timer.cancel();
@@ -100,6 +106,7 @@ public class Client {
 		writer.newColoumn();
 		writer.write(String.format("%1$ta %1$td %1$tb %1$tY %1$tI:%1$tm:%1$tS.%1$tL %1$tp %1$tZ", cor));
 		writer.newRow();
+		writer.flush();
 	}
 
 }
